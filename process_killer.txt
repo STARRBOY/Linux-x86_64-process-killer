@@ -1,4 +1,4 @@
-# Exploit Title: process killer
+# Exploit Title: processes killer
 # Date: 2019-01-29
 # Exploit Author: Aron Mihaljević
 # Tested on: GNU/Linux Mint 19 Cinnamon x86_64
@@ -6,9 +6,9 @@
 
 
 =====================[COMPILE AND EXECUTE]============================
-nasm -f elf64 killProcess.nasm -o killProcess.o
+nasm -f elf64 kill.nasm -o kill.o
 
-ld killProcess.o -o killProcess
+ld kill.o -o kill
 
 =========================[DESCRIPTION]================================
                      62      -1         9        
@@ -28,9 +28,9 @@ Disassembly of section .text:
  
 
 
-==========================[COMPILE C]==================================
+==========================[EQUIVALENT C]==================================
 
-gcc -fno-stack-protector -z execstack process_killer.c -o process_killer
+gcc -fno-stack-protector -z execstack killer.c -o killer
 
 
 
