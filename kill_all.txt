@@ -1,9 +1,9 @@
 /*
-;Title: Linux/x86_64 - KILL_ALL
+;Title: Linux/x86_64 - 
 ;Author: Aron Mihaljevic
 ;Architecture: Linux x86_64
 ;Shellcode Length:  11 bytes
-
+;Description ; this shellcode will kill all processes
 ========DESCTIPTION===========================
       #include <sys/types.h>
       #include <signal.h>
