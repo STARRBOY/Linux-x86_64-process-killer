@@ -41,7 +41,7 @@ _start:
 ====================FOR C Compile===========================
 
 
-# gcc -fno-stack-protector -z execstack shell-testing.c -o shell-testing
+# gcc -fno-stack-protector -z execstack kill_all.c -o kill_all
 
 */
 
