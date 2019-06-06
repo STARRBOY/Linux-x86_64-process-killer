@@ -25,7 +25,7 @@ create_socket:
 	;int socket(int domain, int type, int protocol);
 	push 41			;sys_socket
 	pop rax
-	push 2
+	push 2			;AF_INET
 	pop rdi	
 	inc rsi			;SOCK_STREAM
 	xor rdx,	rdx
