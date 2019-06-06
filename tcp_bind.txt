@@ -48,10 +48,10 @@ create_socket:
 bind:
 	;int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 	xor 	rdx,	rdx	
-	push 	49
+	push 	49		;sys_bind
 	pop 	rax
 	push	rsp	
-	pop 	rsi		;sockaddr stack pointer
+	pop 	rsi		;stack pointer	to sock address
 	add	rdx,	16	;sizeof sockaddr
 	syscall
 
