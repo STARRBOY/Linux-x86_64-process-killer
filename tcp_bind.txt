@@ -118,8 +118,8 @@ spawn_shell:
 
 
 =======Generate Shellcode==========================================
-nasm -felf64 delete.nasm -o delete.o 
-ld delete.o -o delete
+nasm -felf64 tcp_bind.nasm -o tcp_bind.o 
+ld tcp_bind.o -o tcp_bind
 
 
 =========generate C program to exploit=============================
