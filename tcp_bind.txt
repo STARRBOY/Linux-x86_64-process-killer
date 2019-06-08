@@ -1,10 +1,4 @@
-;Title: Linux/x86_64 - Bind (4444/TCP) Shell (/bin/sh)
-;Author: Aron Mihaljevic
-;Architecture: Linux x86_64
-;Shellcode Length:  131 bytes
-;github = https://github.com/STARRBOY	
-;test shellcode = after you run the shellcode, open another terminal and run "netcat -vv 0.0.0.0 4444"
-
+/*
 
 ================== ASSEMBLY ========================================
 
@@ -127,7 +121,7 @@ gcc -fno-stack-protector -z execstack bind.c -o bind
 
 
 ======================C program=====================================
-
+*/
 #include <stdio.h>
 #include <string.h>
 
