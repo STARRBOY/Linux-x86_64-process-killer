@@ -1,4 +1,4 @@
-
+/*
 ;Title: Linux/x86_64 - delete  
 ;Author: Aron Mihaljevic
 ;Architecture: Linux x86_64
@@ -46,7 +46,7 @@ ld delete.o -o delete
 
 ========C program ================================================
 //gcc -fno-stack-protector -z execstack delete.c
-
+*/
 #include <stdio.h>
 #include <string.h>
 
