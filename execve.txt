@@ -1,3 +1,5 @@
+/*
+
 THIS SHELLCODE SPAWNS A NEW SHELL
 
 
@@ -30,7 +32,7 @@ ld shell.o -o shell
 gcc -fno-stack-protector -z execstack shell.c
 
 =======================C PROGRAM======================================
-
+*/
 #include <stdio.h>
 #include <string.h>
 
