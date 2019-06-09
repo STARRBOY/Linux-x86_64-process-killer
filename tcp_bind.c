@@ -1,7 +1,7 @@
 /*
 test = after you run the shellcode open another terminal an run 'netcat -vv 0.0.0.0 4444'
 ================== ASSEMBLY ========================================
-
+//shellcode contains 131 bytes
 
 global _start
 
