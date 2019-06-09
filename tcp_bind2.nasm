@@ -1,4 +1,5 @@
 ;this shellcode contains 104 bytes, unlike previous one, wich contained a 131
+;after you run the shellcode open another terminal an run 'netcat -vv 0.0.0.0 4444'
 global _start
 
 
