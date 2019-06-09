@@ -1,3 +1,4 @@
+//this shellcode contains 104 bytes, unlike previous one wich contained a 131 
 #include <stdio.h>
 #include <string.h>
 
