@@ -3,7 +3,7 @@
 ;Author: Aron Mihaljevic
 ;Architecture: Linux x86_64
 ;Shellcode Length:  70 bytes
-;github = https://github.com/STARRBOY
+
 
 ;compilation and execution of assembly code
 ;-------------------------------------
