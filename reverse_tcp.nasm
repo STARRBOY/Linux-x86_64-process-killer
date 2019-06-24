@@ -22,7 +22,7 @@
 ;open a terminal and run this " nc -l 0.0.0.0 4444 "
 
 ;after you have done that, 
-;open another one and run a shellcode
+;open another one and run the shellcode
 
 
 global _start
