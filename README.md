@@ -11,3 +11,4 @@ dump the binary of the shellcode = for i in $(objdump -d <program> |grep "^ " |c
 generate c program to exploit = gcc -fno-stack-protector -z execstack <program.c> -o <program>
   
 
+  
